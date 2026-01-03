@@ -4159,6 +4159,16 @@ input, select, textarea {
 
 	}
 
+.timeline-sidebar {
+  width: 300px;
+  padding: 12px;
+  background: rgba(10,15,20,0.6);
+  color: #cfe9ff;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* 列表 */
 .timeline-list {
   list-style: none;
   margin: 6px 0;
@@ -4170,7 +4180,7 @@ input, select, textarea {
 /* 分组头 */
 .group-header {
   cursor: pointer;
-  padding: 6px 8px;
+  padding: 8px 10px;
   font-weight: 700;
   color: #cfe9ff;
   display: flex;
@@ -4185,12 +4195,13 @@ input, select, textarea {
 /* 折叠容器 */
 .group-container {
   display: none;
-  padding-left: 6px;
+  padding-left: 8px;
   margin-top: 6px;
 }
 
 /* 单日项（合并后的） */
-.timeline-day {
+.timeline-day,
+.timeline-highlight {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -4202,28 +4213,45 @@ input, select, textarea {
   color: #aebfdc;
   font-size: 13px;
 }
-.timeline-day:hover {
+.timeline-day:hover,
+.timeline-highlight:hover {
   background: rgba(255,255,255,0.03);
   transform: translateX(-4px);
   color: #fff;
 }
-.timeline-day.active {
+.timeline-day.active,
+.timeline-highlight.active {
   background: linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
   color: #fff;
   transform: translateX(-6px) scale(1.01);
 }
 
+/* 精彩瞬间展示文本可多行 */
+.timeline-highlight .highlight-text {
+  white-space: normal;
+  word-break: break-word;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* 默认的日期文本 */
+.timeline-day .date-text {
+  font-weight: 500;
+}
+
 /* 简洁的点 */
-.timeline-day .dot {
+.timeline-day .dot,
+.timeline-highlight .dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: rgba(255,255,255,0.08);
   flex: 0 0 8px;
 }
-.timeline-day.active .dot { background: #00b4ff; transform: scale(1.1); }
+.timeline-day.active .dot,
+.timeline-highlight.active .dot { background: #00b4ff; transform: scale(1.1); }
 
-/* 小屏幕隐藏（如需要） */
+/* 小屏幕隐藏（可按需移除） */
 @media (max-width: 900px) {
   .timeline-sidebar { display: none; }
 }
