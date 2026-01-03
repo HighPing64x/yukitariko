@@ -4158,3 +4158,77 @@ input, select, textarea {
 		}
 
 	}
+
+.timeline-list {
+  list-style: none;
+  margin: 6px 0;
+  padding: 6px;
+  overflow-y: auto;
+  max-height: calc(100vh - 180px);
+}
+
+/* 分组头 */
+.group-header {
+  cursor: pointer;
+  padding: 6px 8px;
+  font-weight: 700;
+  color: #cfe9ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  user-select: none;
+  border-radius: 6px;
+}
+.group-header:hover { background: rgba(255,255,255,0.02); }
+
+/* 折叠容器 */
+.group-container {
+  display: none;
+  padding-left: 6px;
+  margin-top: 6px;
+}
+
+/* 单日项（合并后的） */
+.timeline-day {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  margin: 4px 0;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform .18s ease, background-color .18s ease, color .18s ease;
+  color: #aebfdc;
+  font-size: 13px;
+}
+.timeline-day:hover {
+  background: rgba(255,255,255,0.03);
+  transform: translateX(-4px);
+  color: #fff;
+}
+.timeline-day.active {
+  background: linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  color: #fff;
+  transform: translateX(-6px) scale(1.01);
+}
+
+/* 简洁的点 */
+.timeline-day .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  flex: 0 0 8px;
+}
+.timeline-day.active .dot { background: #00b4ff; transform: scale(1.1); }
+
+/* 小屏幕隐藏（如需要） */
+@media (max-width: 900px) {
+  .timeline-sidebar { display: none; }
+}
+
+/* 滚动条美化 */
+.timeline-list::-webkit-scrollbar { width: 10px; }
+.timeline-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 8px; }
+.timeline-list { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.06) transparent; }
